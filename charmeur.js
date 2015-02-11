@@ -5,6 +5,27 @@
   var tab, box, email, shown = false, sending = false, openmsg = null, callbacks = {},
     VENDORS = ['webkit','moz','o','ms'],
     STYLE =
+      '.feedback-button {' +
+      '  display: inline-block;' +
+      '  position: fixed;' +
+      '  right: 0;' +
+      '  left: auto;' +
+      '  top: 35%;' +
+      '  margin: 0;' +
+      '  padding: 1.5em 1em .5em;' +
+      '  border-radius: 4px;' +
+      '  transform: rotate(90deg) translateY(-140%);' +
+      '  will-change: transform;' +
+      '  transition: transform ease 200ms;' +
+      '  background: #ffffff;' +
+      '  font-size: 13px;' +
+      '  color: #a2afb3;' +
+      '  text-transform: uppercase;' +
+      '  box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.15);' +
+      '}' +
+      '.feedback-button:hover {' +
+      '  transform: rotate(90deg) translateY(-130%);' +
+      '}' +
       '.feedback-popup {' +
       '    position: fixed;' +
       '    top: 50%;' +
@@ -116,7 +137,7 @@
   function init(){
     tab = document.createElement('a');
     tab.id = "CHARM_TAB";
-    
+    tab.className = 'feedback-button'
     tab.href = "https://secure.charmhq.com/feedback/" + __CHARM.key;
     tab.onclick = function(){ show(); return false };
     document.body.appendChild(tab);
